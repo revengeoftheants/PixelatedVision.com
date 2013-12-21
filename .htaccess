@@ -1,0 +1,31 @@
+# When a url comes into Apache it looks something like www.pixelatedvision.com/projectContentKineticLights1.
+# Before the url hits the rewrite rules, Apache strips the domain name and leading slash, leaving projectContentKineticLights1.
+# Then the url is run through all the rewrite rules and changed accordingly.
+# Once the rewrite rules have been completed, the RewriteBase rule is applied if one exists.
+
+RewriteEngine on
+
+# This rule handles a url of www.pixelatedvision.com.
+RewriteCond %{HTTP_HOST} ^(www.)?pixelatedvision.com$ [NC]
+RewriteRule ^(/)?$ scripts/pv.main.php [L]
+
+
+# This rule handles a url for content within the domain www.pixelatedvision.com that is not a file.
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_URI} !\.(php|css|js|jpe?g|html|swf|txt)$
+RewriteRule ^(.*)$ scripts/pv.main.php?dynContent=$1 [L]
+
+
+
+# BEGIN W3TC Browser Cache
+<IfModule mod_deflate.c>
+    <IfModule mod_headers.c>
+        Header append Vary User-Agent env=!dont-vary
+    </IfModule>
+        AddOutputFilterByType DEFLATE text/css text/x-component application/x-javascript application/javascript text/javascript text/x-js text/html text/richtext image/svg+xml text/plain text/xsd text/xsl text/xml image/x-icon application/json
+    <IfModule mod_mime.c>
+        # DEFLATE by extension
+        AddOutputFilter DEFLATE js css htm html xml
+    </IfModule>
+</IfModule>
+# END W3TC Browser Cache

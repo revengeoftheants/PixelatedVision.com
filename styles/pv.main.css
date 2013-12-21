@@ -1,0 +1,154 @@
+body {
+	position: absolute;
+	top: 0;
+	left: 0;
+    height: 100%;
+    overflow: auto;
+    padding: 0;
+    margin: 0;
+    min-width: 900px;
+    max-width: 1400px;
+    width: 100%;
+    background-color: #FFFFFF;
+	color: #626262;
+    font-family: arial, verdana, georgia;
+    font-size: 100%;
+}
+
+p {
+	-webkit-margin-before: 0;
+}
+
+#masthead {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100px;
+	width: 100%
+}
+
+#mainBodyCntnr {
+	position: absolute;
+	white-space: nowrap;  /* Prevents the thumbnails from wrapping. */
+	top: 100px;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+}
+
+#menuCntnr {
+	display: inline-block;
+	vertical-align: top;
+	width: 13%;
+	margin-left: 5%;
+	min-width: 160px;
+	height: 100%;
+}
+
+.menuListCntnr {
+	margin-top: 25%;
+}
+
+
+#contentCntnr {
+	display: inline-block;
+	vertical-align: top;
+	width: 71%;
+	margin-left: 3%;
+	margin-right: 5%;
+	white-space: normal;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
+img {
+	max-width: 100%;
+}
+
+ul {
+    list-style-type: none;
+	margin-top: 1%;
+	padding-left: 4%;
+	font-size: 0.8em;
+	color: #828282;
+}
+
+ol {
+	list-style-type: none;
+}
+
+li {
+	margin-top: 3%;
+}
+
+#dynamicContentCntnr {
+	width: 100%;
+
+	opacity: 0;
+	-webkit-transition: opacity 0.2s linear;
+	-moz-transition: opacity 0.2s linear;
+	-o-transition: opacity 0.2s linear;
+	-ms-transition: opacity 0.2s linear;
+	transition: opacity 0.2s linear;
+}
+
+#dynamicContentCntnr.loaded {
+	opacity: 1;
+}
+
+#projectContentTitle {
+	font-size: 1.1em;
+	margin-bottom: 4%;
+}
+
+.figure {
+	float: left;
+	width: 45%;
+	margin: 0% 4% 4% 0%;
+}
+.figure p {
+	font-size: 1.0em;
+	margin-top: 1%;
+	text-align: center;
+}
+
+#projectContent, #aboutContent {
+	font-size: 0.8em;
+}
+
+.projectImgCntnr {
+	margin: 3% 0%;
+}
+
+.contentLink {
+	border-bottom: #999999;
+    border-width: 0px 0px 1px 0px;
+    border-style: none none dotted none;
+}
+
+.contentLink:hover {
+	border-bottom: #999999;
+    border-width: 0px 0px 1px 0px;
+    border-style: none none solid none;
+    color: #000000;
+}
+
+#projectTechDetails {
+	font-size: 1.25em;
+	margin: 5% 0 2% 0;
+}
+
+#dynamicContentEndLine {
+	background-color: #626262;
+	width: 100%;
+	height: 1px;
+	margin: 5% 0;
+}
+
+#dynamicContentCollapseCntnr {
+	margin: 2% 0 4% 0;
+	font-size: .75em;
+}

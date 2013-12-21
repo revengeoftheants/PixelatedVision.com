@@ -1,0 +1,33 @@
+<div id="dynamicContentBlueMarble">
+    
+    <div id="projectContentTitle">Blue Marble</div> 
+    
+    <div id="projectContent">
+    	<div>
+	    	<p>
+	    		<i>Blue Marble</i> began as a foundation for visualizing various kinds of global data in a format that is arresting and therefore elicits deeper investigation and interaction; however, after discovering NASA's collection of <a class="contentLink" href="http://visibleearth.nasa.gov/view_cat.php?categoryID=1484">Blue Marble: Next Generation</a> digital images composited from month-long periods of satellite data, it quickly morphed into an exploration of realism, the highlight of which is the combination of and smooth transition between Earth's natural and artificial lighting.
+	    	</p>
+	    	<div class="projectImgCntnr">
+	    		<a href="/projects/BlueMarble/index.html" target="_blank">
+					<img src="images/BlueMarble_1024x512.jpg"/>
+				</a>  	
+	    	</div>	
+    	</div>
+    	<div>
+    		<div id="projectTechDetails">Implementation Details</div>
+	    	<p>
+	    		<a class="contentLink" href="http://threejs.org/">Three.js</a>, a high-level Javascript library for <a class="contentLink" href="http://en.wikipedia.org/wiki/WebGL">WebGL</a>, makes the creation of spheres and the mapping of <a class="contentLink" href="http://en.wikipedia.org/wiki/Texture_mapping">textures</a> onto them very easy. This model consists of a base sphere showing topography and <a class="contentLink" href="http://en.wikipedia.org/wiki/Bathymetry">bathymetry</a> for the month of <a class="contentLink" href="http://visibleearth.nasa.gov/view.php?id=73776">August</a>, which was chosen for its lack of ice in the Northern Hemisphere. This layer also includes <a class="contentLink" href="http://www.shadedrelief.com/natural3/pages/extra.html">bump and specular maps</a> from the Natural Earth III collection to enhance the appearance of elevated areas and the reflectivity of water respectively. <a class="contentLink" href="http://www.shadedrelief.com/natural3/pages/extra.html">International boundaries</a> are mapped onto a slightly larger sphere, while a third sphere displaying <a class="contentLink" href="http://www.shadedrelief.com/natural3/pages/textures.html">nighttime lights</a> encompasses them. A fourth larger sphere displays our <a class="contentLink" href="http://www.shadedrelief.com/natural3/pages/clouds.html">clouds</a>, doctored in Photoshop so as not to excessively mask landmasses. Finally, a <a class="contentLink" href="http://paulbourke.net/miscellaneous/starfield/">starfield</a> is projected onto the interior of a very large sphere used to represent the universe. All the earth spheres are tilted 23.4&#176; and rotated in tandem in order to simulate Earth's daily rotation around its axis, with the cloud layer rotating slightly faster as a simple way to suggest the force of wind.
+	    	</p>
+	    	<p>
+	    		Though this project was on the whole fairly simple, the most gratifying aspect was discovering a way to display the nighttime lights layer in a convincing manner, hiding and revealing these lights as half the Earth's surface progressively moves into and out of the Sun's rays. Because textures are normally displayed in an all-or-nothing manner, I got the chance to write my first custom <a class="contentLink" href="http://en.wikipedia.org/wiki/Shader">vertex and fragment (aka pixel) shaders</a> for this layer. Within these shaders we take the <a class="contentLink" href="http://mathinsight.org/dot_product">dot product</a> between each of the Earth's vertex normals and the Sun's position, leveraging the fact that the dot product is directly related to the cosine of the angle between two vectors. If a given vertex normal on the Earth is pointing towards the Sun (i.e., has a dot product approaching -1), then we make the nighttime lights layer at this pixel transparent, whereas we make it opaque if the normal is pointing away from the Sun (i.e., has a dot product approaching 1). This simple calculation is sufficient to create quite a realistic lighting transition; however, I would like to experiment with adding noise to the equation in order to make lighting near the transitional shadow boundary a little more dynamic and thus more natural.
+	    	</p>
+    	</div>
+    </div>
+    
+    <div id="dynamicContentCollapseCntnr">
+	    <a id="dynamicContentCollapseLink" href="">[collapse]</a>
+    </div>
+    
+    <div id="dynamicContentEndLine"></div>
+
+</div>

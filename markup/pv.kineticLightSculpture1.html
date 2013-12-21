@@ -1,0 +1,42 @@
+<div id="dynamicContentKineticLights1">
+    
+    <div id="projectContentTitle">Kinetic Light Sculpture #1</div> 
+    
+    <div id="projectContent">
+    	<div>
+	    	<p>
+	    		<i>Kinetic Light Sculpture #1</i> is an exploration of light, sound, and movement, a music video in code. It envisions a near future in which our surroundings are animate, reacting to stimuli and correspondingly arousing, with its magical elegance, new feelings of excitement and wonder in us the participants.
+	    	</p>
+	    	<div class="projectImgCntnr">
+	    		<a href="/projects/KineticLightSculpture1/index.html" target="_blank">
+					<img src="images/KineticLightSculpture1_1024x512.jpg"/>
+				</a>  	
+	    	</div>	
+    	</div>
+    	<div>
+    		<div id="projectTechDetails">Implementation Details</div>
+	    	<p>
+	    		This is the first creative coding project I undertook using <a class="contentLink" href="http://threejs.org/">Three.js</a>, a high-level Javascript library for <a class="contentLink" href="http://en.wikipedia.org/wiki/WebGL">WebGL</a>. It was directly inspired by WHITEvoid's <a class="contentLink" href="https://vimeo.com/45859302">module system</a> for Philip's <a class="contentLink" href="http://www.lumiblade-experience.com/livingsculpture%3Fslide=1.html">LivingSculpture</a> family of Lumiblade OLED lights. But at its core it represents a combination of my strongest interests: light installations, music visualization, minimalism, and cinematography.
+	    	</p>
+	    	<p>
+	    		This piece utilizes Three.js's experimental WebGLDeferredRenderer class to perform <a class="contentLink" href="http://en.wikipedia.org/wiki/Deferred_shading">deferred rendering</a>. This rendering method primarily allows one to mimic Philip's Lumiblade OLEDs with area lights, which are currently unavailable in the official version of Three.js.  However, it also allows for the use of a large number of dynamic lights; for example, this scene utilizes fourteen area lights and one hemisphere light.
+	    	</p>
+	    	<p>
+	    		Moving the camera around the scene in a pleasing, cinematic fashion was probably the most difficult aspect of this project, but the excellent Tween.js library was incredibly useful for smoothly interpolating along the paths that I defined. To translate the camera around the scene I spent a lot of time experimenting with both Euler and quaternion rotations until finally settling with Euler, largely because it appears that <a class="contentLink" href="http://en.wikipedia.org/wiki/Slerp">spherical linear interpolation</a> using quaternions is limited to <a class="contentLink" href="http://en.wikipedia.org/wiki/Great_circle">great circles</a> around a sphere, making it impossible to retain full control over the camera's path. The camera's orientation, on the other hand, is set with quaternions since these rotations are much smoother than Euler and the "great circle" issue is not a problem in this realm.
+	    	</p>
+	    	<p>
+	    		<a class="contentLink" href="http://www.schillmania.com/projects/soundmanager2/">SoundManager2.js</a> performs all audio playback (here streaming from SoundCloud) and the audio is analyzed using logic from Lodewijk Bogaards's <a class="contentLink" href="http://www.chromeexperiments.com/detail/hobovis/?f=">Hobovis</a> music visualizer.
+	    	</p>
+	    	<p>
+	    		Watch the <a class="contentLink" href="http://www.pixelatedvision.com/projects/KineticLightSculpture1/index.html" target="_blank">demo</a>, and view the source on <a class="contentLink" href="https://github.com/revengeoftheants/KineticLightSculpture1">Github</a>. Note: This piece requires a good graphics card. My desktop Nvidia GeForce GTX 670 can maintain 60fps at a resolution of 2560x1440, but the Nvidia GeForce GT 650M inside my Fall 2012 Macbook Pro only achieves a maximum of about 30fps while in Retina resolution with the browser sized to one half of the screen (i.e., 720x450). Thus, if using a Retina display either resize your browser to half the screen size or <a class="contentLink" href="http://www.ehow.com/how_2064940_change-display-resolution-mac-osxchange-display-resolution-mac-osx.html">adjust your resolution</a> to its lowest setting.
+	    	</p>
+    	</div>
+    </div>
+    
+    <div id="dynamicContentCollapseCntnr">
+	    <a id="dynamicContentCollapseLink" href="">[collapse]</a>
+    </div>
+    
+    <div id="dynamicContentEndLine"></div>
+
+</div>

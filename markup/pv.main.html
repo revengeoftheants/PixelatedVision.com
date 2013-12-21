@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Pixelated Vision</title>
+		<meta name="description" content="Experiments. Kevin Dean." />
+
+		<link rel="stylesheet" type="text/css" href="styles/pv.main.css">
+
+		<script type="text/javascript" src="scripts/libraries/native.history.min.js"></script>
+		<script type="text/javascript" src="scripts/pv.main.js"></script>
+
+	</head>
+
+	<body onload="Main.Init()">
+		<!-- This site design was directly influenced by http://www.davidsjunnesson.com. -->
+		<div id="masthead"></div>
+		<div id="mainBodyCntnr">
+			<div id="menuCntnr">
+				<div>
+					<a class="dynamicContentLink" href="about">About</a>
+				</div>
+				<div class="menuListCntnr">Personal Projects
+					<ul>
+						<li><a id="listItemKineticLight1" class="dynamicContentLink" href="kineticLightSculpture1">Kinetic Light Sculpture #1</a></li>
+						<li><a id="listItemBlueMarble" class="dynamicContentLink" href="blueMarble">Blue Marble</a></li>
+					</ul>   
+				</div>
+
+				<div class="menuListCntnr" style="display:none">Tags
+					<ul>
+						<li><a class="tagLink" name="tag9" href="#tag-WebGL">WebGL</a></li>
+						<li><a class="tagLink" name="tag3" href="#tag-3D_Modeling">3D Modeling</a></li>
+					</ul>
+				</div>
+			</div>
+
+			<div id="contentCntnr">
+				<div id="dynamicContentCntnr" class="loaded"></div>
+
+				<ol id="thumbnailsCntnr">
+					<li id="KineticLightSculpture1" class="figure">
+						<a class="dynamicContentLink" href="kineticLightSculpture1">
+							<img src="images/KineticLightSculpture1_1024x512.jpg"/>
+							<p>Kinetic Light Sculpture #1</p>
+						</a>						
+					</li>
+
+					<li id="BlueMarble" class="figure">
+						<a class="dynamicContentLink" href="blueMarble">
+							<div><img src="images/BlueMarble_1024x512.jpg"/></div>
+							<p>Blue Marble</p>
+						</a>						
+					</li>
+				</ol>
+			</div>
+		</div>
+	</body>
+</html>
