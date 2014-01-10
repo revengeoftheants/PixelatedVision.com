@@ -1,0 +1,57 @@
+<div id="dynamicContentOneClock">
+    
+    <div id="projectContentTitle">One Clock</div> 
+    
+    <div id="projectContent">
+    	<div>
+	    	<p>
+	    		For a number of years one of my biggest frustrations has been with how we communicate time. Though time is, for all practical purposes,<sup>1</sup> <a class="contentLink" href="http://en.wikipedia.org/wiki/Continuous_function">continuous</a>, linear, and irreversible, we treat it as anything but, carving the world into over 400 politically defined time zones since 1970, each with its own set of rules designating what time it is in that region at any given moment in the calendar year. The state of Indiana alone has recognized <a class="contentLink" href="http://en.wikipedia.org/wiki/Time_in_Indiana">eleven different regions</a> within its borders during this period. 
+	    	</p>
+	    	<div class="projectImgCntnr">
+	    		<a href="/projects/OneClock/index.html" target="_blank">
+					<img src="images/TimeZones_1024x512.jpg"/>
+				</a>  	
+	    	</div>
+	    	<p>
+	    		The purpose of time zones is twofold: to provide a uniform time for a region's population while simultaneously aligning that standard as closely as possible with the <a class="contentLink" href="http://en.wikipedia.org/wiki/Solar_time">local solar time</a>, in which the sun's highest position in the sky corresponds to 12pm. While the first objective is necessary for avoiding chaos, the second is arbitrary and simply results from our past reliance on sundials before <a class="contentLink" href="http://en.wikipedia.org/wiki/Time_zone#Early_timekeeping">accurate mechanical clocks became common in the early 19th century</a>. Before accurate mechanical clocks became widespread, each local population had its own standard time based on the position of the sun in that locatality. This highly localized nature of time caused few problems due to the fact that contact between settlements, whether physical or transmissive, was limited to short distances prior to the middle of the 19th century. It was then that the world was introduced to electric telegraphy and railroads, which dramatically increased the distance a person or his messages could travel, thus making it necessary to standardize time in some way in order to facilitate communication across wide longitudinal distances. Thus, in order to simplify their trans-continental operations, <a class="contentLink" href="http://en.wikipedia.org/wiki/Time_zone#Railroad_time">at the end of 1847</a> railroad companies began creating zones of standarized time.
+	    	</p>
+	    	<p>
+	    		But the creation of time zones was not without significant concessions. The most elegant way to replace a multiplicity of local times is to synchronize all clocks worldwide, such as to the local time at the Royal Observatory of Greenwich, which was already becoming a <a class="contentLink" href="http://en.wikipedia.org/wiki/Nevil_Maskelyne#Measurement_of_longitude">reference location for mariners by the end of the 18th century</a>. However, this solution results in a widening difference between local time and solar time as one progresses away from the reference meridian; therefore, time zones were a compromise between synchronizing time worldwide and retaining the custom of local solar time.
+	    	</p>
+	    	<p>
+	    		The negative side of this compromise, the management cost of time zone conversion rules, was not at first significant because long-distance travel and communication remained relatively uncommon until the middle of the 20th century, when telephones not only became widespread but also began to allow <a class="contentLink" href="http://en.wikipedia.org/wiki/Interconnection#United_States">interconnection across competing networks</a>. These advancements freed people from reliance on an intermediary device or operator, thus allowing them to communicate for the first time over long distances easily and, as a result, regularly. It is the ever-increasing frequency of long-distance communication and travel in the modern era that highlights the over-complexity of our current time zone system, creating costs for everyone who must determine time across multiple regions, particularly large corporations and other global institutions. These costs are in fact unavoidable; there is no reliable heuristic for determining the time in far-flung locations. Because time zones are so numerous and their boundaries and rules so unique (e.g., although most time zones differ by whole hours, a number use half-hour and even quarter-hour derivations, which is itself a relatively trifling issue compared to knowing if and when a zone implements <a class="contentLink" href="http://en.wikipedia.org/wiki/Daylight_saving_time">Daylight Saving Time</a>), it is impossible to accurately know, for more than a handful of locations, the time for any point during the calendar year without the need to consult a database either directly or via software.
+	    	</p>
+	    	<p>
+	    		This project attempts to communicate visually some of the complexities and absurd outcomes of our choice to force time to bend to the shapes of our political boundaries. In addition it offers a new kind of clock, one that adheres solely to the idea of a global time while respecting the differing diurnal experiences of specific locations.
+	    	</p>
+	    	<div class="projectImgCntnr">
+	    		<a href="/projects/OneClock/index.html" target="_blank">
+					<img src="images/OneClock_1024x512.jpg"/>
+				</a>  	
+	    	</div>
+    	</div>
+    	<div>
+    		<div id="projectTechDetails">Implementation Details</div>
+	    	<p>
+	    		This is my first significant project utilizing <a class="contentLink" href="http://d3js.org/">d3.js</a>, a Javascript library for creating and manipulating <a class="contentLink" href="http://en.wikipedia.org/wiki/Scalable_Vector_Graphics">Scalable Vector Graphics</a> inside the browser.
+	    	</p>
+	    	<p>
+	    		Time zone names and UTC offsets were obtained from the Time Zone Database (aka tz database), now maintained by the <a class="contentLink" href="http://www.iana.org/time-zones">Internet Assigned Numbers Authority</a>. These data were paired with each zone's shape as defined by the tz_world_mp <a class="contentLink" href="http://en.wikipedia.org/wiki/Shapefile">shapefile</a> assiduously maintained by <a class="contentLink" href="http://efele.net/maps/tz/world/">Eric Muller</a>. In order to use these shapes within d3, the shapefile was converted to <a class="contentLink" href="https://github.com/mbostock/topojson">TopoJSON</a> (NB: the <i>--no-stitch-poles</i> command was used to prevent the splicing together of polygons crossing the <a class="contentLink" href="http://en.wikipedia.org/wiki/180th_meridian">180th meridian</a>).
+	    	</p>
+	    	<p>
+	    		The sunrise and sunset times for each selected world clock location are calculated using the formula and code of the <a class="contentLink" href="http://www.esrl.noaa.gov/gmd/grad/solcalc/">Earth System Research Laboratory</a> at the National Oceanic &amp; Atmospheric Association, while <a class="contentLink" href="http://en.wikipedia.org/wiki/Geocoding">geocoding</a> of locations is performed via <a class="contentLink" href="https://developers.google.com/maps/documentation/geocoding/">Google's Geocoding API</a>.
+	    	</p>
+	    	<br />
+	    	<p class="footnote">
+	    		1. Einstein's theories of relativity predict and experiments have shown the existence of <a class="contentLink" href="http://en.wikipedia.org/wiki/Time_dilation">time dilation</a>, which is a difference in elapsed time between two events as measured by observers moving relative to one another or situated at different distances from a significant gravitational mass.
+	    	</p>
+    	</div>
+    </div>
+    
+    <div id="dynamicContentCollapseCntnr">
+	    <a id="dynamicContentCollapseLink" href="">[collapse]</a>
+    </div>
+    
+    <div id="dynamicContentEndLine"></div>
+
+</div>

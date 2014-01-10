@@ -41,9 +41,6 @@
 	 */
 	Main.Init = function() {
 
-		var kevin;
-		kevin = "blah";
-
 		setupPrototypes();
 		createDefaultRequest();
 		

@@ -1,7 +1,7 @@
 <?php
 	$isXmlHttpRequest = isset($_SERVER["HTTP_X_REQUESTED_WITH"]) && strtolower($_SERVER["HTTP_X_REQUESTED_WITH"]) == "xmlhttprequest";
 
-    $uri = $_GET["dynContent"];  // This lacks the domain and starts with "/".
+    $uri = strtolower($_GET["dynContent"]);  // This lacks the domain and starts with "/".
 
 	// Chrome's Page Cache does not handle the caching of ajax content properly; it only caches the ajax content, not the static page around it.
 	// So we will disable caching of these responses to force them to be requested again.
