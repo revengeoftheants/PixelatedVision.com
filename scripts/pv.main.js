@@ -19,7 +19,6 @@
 	/**********************
 	 * Constants
 	 **********************/
-	var BASE_URL_TXT = "http://www.pixelatedvision.com/";
 	var TRANS_END_EVENT_NMS = ["webkitTransitionEnd", "transitionend", "msTransitionEnd", "oTransitionEnd"];
 	var DYNAMIC_CONTENT_LOADED_NM = "loaded";
 
@@ -41,6 +40,11 @@
 	 */
 	Main.Init = function() {
 
+		// IE does not currently support window.location.origin, so we need to hack it for IE.
+		if (!window.location.origin) {
+			window.location.origin = window.location.protocol + "//" + window.location.hostname + (window.location.port ? ':' + window.location.port: '');
+		}
+
 		setupPrototypes();
 		createDefaultRequest();
 		
@@ -58,9 +62,9 @@
 		 * perform the ajax call to load that state.
 		 */
 		History.Adapter.bind(window, "statechange", function() {
-			var contentTxt = History.getState().url.replace(BASE_URL_TXT, "");
+			var contentTxt = History.getState().url.replace(window.location.origin + "/", "");
 
-			if  (contentTxt > "") {
+			if  (contentTxt > "" && contentTxt !== window.location.origin) {
 				if (document.getElementById(contentTxt)) {
 					// The content is already loaded.
 				} else {
@@ -111,7 +115,7 @@
 		baseReq.responseText = "";
 		baseReq.onload = handleProjContentReqLoad;
 		baseReq.onerror = handleProjContentReqError;
-		_projContent[BASE_URL_TXT] = baseReq;
+		_projContent[window.location.origin] = baseReq;
 	}
 
 
@@ -157,7 +161,9 @@
 	function addDynamicContentCollapseClickListener(inpCollapseLink) {
 		if (inpCollapseLink) {
 			inpCollapseLink.addEventListener("click", function(inpEvent) {
-				History.pushState({urlPathTxt: BASE_URL_TXT}, null, BASE_URL_TXT);
+				// Note: It's necessary that the home URL not end with a forward slash; otherwise, Chrome will throw a security
+				// error saying that it's not in the same origin as the main URL.
+				History.pushState({urlPathTxt: window.location.origin}, null, window.location.origin);
 				inpEvent.preventDefault();  // We are handling link click events ourselves.
 			});
 		}
